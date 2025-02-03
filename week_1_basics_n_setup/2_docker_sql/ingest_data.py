@@ -56,6 +56,9 @@ def connect_and_process():
             df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
             df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
 
+            # Insert column headers
+            df.head(n=0).to_sql(name='green_tripdata', con=engine, if_exists='replace')
+
             # Insert into database
             df.to_sql(name='green_tripdata', con=engine, if_exists='append')
 
@@ -81,6 +84,9 @@ def connect_and_process():
 
         # Load Data 
         df1 = pd.read_csv(extract_filename)
+
+        # Insert column headers
+        df1.head(n=0).to_sql(name='taxi_zone', con=engine, if_exists='replace')
 
         # Insert into database
         df1.to_sql(name='taxi_zone', con=engine, if_exists='append')
