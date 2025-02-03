@@ -1,8 +1,10 @@
 FROM python:3.9
 
-RUN pip install pandas
+COPY requirements.txt requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /app
-COPY pipeline.py pipeline.py
+COPY main.py main.py
 
-ENTRYPOINT [ "python", "pipeline.py" ]
+ENTRYPOINT [ "python", "main.py" ]

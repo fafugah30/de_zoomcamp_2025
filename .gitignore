@@ -1,5 +1,6 @@
 
 # ignore files
 week_1_basics_n_setup/2_docker_sql/database.ini
+week_1_basics_n_setup/2_docker_sql/green_tripdata_2019-10.csv.gz
 
 .ipynb_checkpoints/
